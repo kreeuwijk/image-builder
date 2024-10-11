@@ -20,7 +20,7 @@
   "kubernetes_rpm_version": "1.30.5",
   "kubernetes_semver": "v1.30.5",
   "kubernetes_series": "v1.30",
-  "kubernetes_source_type": "pkg",
+  "kubernetes_source_type": "url",
   "systemd_prefix": "/usr/lib/systemd",
   "sysusr_prefix": "/usr",
   "sysusrlocal_prefix": "/usr/local"
