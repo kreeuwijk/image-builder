@@ -46,6 +46,7 @@
     name: "*"
     state: latest
     lock_timeout: 60
+    exclude: "kernel*"
 
 - name: Install baseline dependencies
   ansible.builtin.yum:

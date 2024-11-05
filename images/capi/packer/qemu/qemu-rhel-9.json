@@ -7,10 +7,14 @@
   "distro_version": "9",
   "epel_rpm_gpg_key": "https://dl.fedoraproject.org/pub/epel/RPM-GPG-KEY-EPEL-9",
   "guest_os_type": "RedHat_64",
-  "iso_checksum": "5c802147aa58429b21e223ee60e347e850d6b0d8680930c4ffb27340ffb687a8",
+  "iso_checksum": "398561d7b66f1a4bf23664f4aa8f2cfbb3641aa2f01a320068e86bd1fc0e9076",
   "iso_checksum_type": "sha256",
-  "iso_url": "rhel-9.3-x86_64-dvd.iso",
+  "iso_url": "rhel-9.4-x86_64-dvd.iso",
   "os_display_name": "RHEL 9",
   "redhat_epel_rpm": "https://dl.fedoraproject.org/pub/epel/epel-release-latest-9.noarch.rpm",
-  "shutdown_command": "shutdown -P now"
+  "shutdown_command": "shutdown -P now",
+  "kubernetes_semver": "v1.30.4",
+  "kubernetes_series": "v1.30",
+  "rke_k8s_version": "v1.30.4-rke2r1-build20240815",
+  "s3_bucket": "kevin-rke2-test"
 }
