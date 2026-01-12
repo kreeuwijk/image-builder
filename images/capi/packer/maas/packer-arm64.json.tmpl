@@ -38,6 +38,9 @@
         [ "-device", "usb-ehci" ],
         [ "-device", "usb-kbd" ],
         "-usb",
+        [ "-drive", "if=none,file=output/{{user `vm_name`}}/{{user `vm_name`}},id=drive0,cache=writeback,discard=unmap,format=qcow2" ],
+        [ "-device", "virtio-blk,drive=drive0,bootindex=0" ],
+        [ "-drive", "file={{user `iso_target_path`}},if=none,index=1,id=cdrom0,media=cdrom" ],
         [ "-device", "virtio-blk,drive=cdrom0,bootindex=1" ],
         [ "-device", "virtio-gpu-pci" ]
       ],
@@ -185,7 +188,7 @@
     "disk_compression": "false",
     "disk_discard": "unmap",
     "disk_image": "false",
-    "disk_interface": "virtio",
+    "disk_interface": "virtio-scsi",
     "disk_size": "20480",
     "efi_boot": "true",
     "efi_firmware_code": "/var/lib/libvirt/images/capi.fd",
