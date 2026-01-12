@@ -43,6 +43,8 @@
         [ "-device", "virtio-blk,drive=drive0,bootindex=0" ],
         [ "-drive", "file={{user `iso_target_path`}},if=none,index=1,id=cdrom0,media=cdrom" ],
         [ "-device", "virtio-blk,drive=cdrom0,bootindex=1" ],
+        [ "-drive", "file=/var/lib/libvirt/images/capi.fd,format=raw,if=pflash" ],
+        [ "-drive", "file=/var/lib/libvirt/images/capi-nvmram.fd,format=raw,if=pflash" ],
         [ "-device", "virtio-gpu-pci" ]
       ],
       "shutdown_command": "echo '{{user `ssh_password`}}' | sudo -S -E sh -c 'userdel -f -r {{user `ssh_username`}} && rm -f /etc/sudoers.d/{{user `ssh_username` }} && rm -f /etc/sudoers.d/90-cloud-init-users && {{user `shutdown_command`}}'",
