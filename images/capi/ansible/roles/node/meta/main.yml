@@ -43,7 +43,9 @@ dependencies:
       rpms: >-
         {{ ( common_rpms + rh8_rpms + lookup('vars', 'common_' + build_target + '_rpms') ) }}
       debs: "{{ common_debs +  lookup('vars', 'common_' + build_target + '_debs_arm64') }}"
-    when: packer_builder_type is search('qemu') and ansible_architecture == "aarch64"
+    when: >
+      ansible_architecture == "aarch64"
+        and (packer_builder_type is search('qemu') or (provider is defined and provider is search('maas')))
 
   - role: setup
     vars:
@@ -54,6 +56,7 @@ dependencies:
       ansible_distribution not in ["VMware Photon OS", "Amazon"]
         and not (packer_builder_type == "oracle-oci" and ansible_architecture == "aarch64")
         and not (packer_builder_type is search('qemu') and ansible_architecture == "aarch64")
+        and not (ansible_architecture == "aarch64" and provider is defined and provider is search('maas'))
 
   - role: setup
     vars:
